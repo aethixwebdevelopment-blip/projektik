@@ -414,3 +414,70 @@ button.metric-card { cursor: pointer; }
   .inline-confirm { background: #fff7f2; }
   .home-indicator { background: #101515; }
 }
+
+
+/* One bounded introduction; all content remains visible without animation. */
+@keyframes move4all-arrive {
+  from { opacity: .25; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes move4all-device {
+  from { opacity: .3; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes move4all-emphasis {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0); }
+}
+.bottom-nav { --tab-index: 0; isolation: isolate; }
+.bottom-nav[data-tab="training"] { --tab-index: 1; }
+.bottom-nav[data-tab="history"] { --tab-index: 2; }
+.bottom-nav[data-tab="settings"] { --tab-index: 3; }
+.bottom-nav::before {
+  position: absolute;
+  z-index: -1;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  width: calc((100% - 21px) / 4);
+  border-radius: 18px;
+  background: rgb(130 244 242 / .16);
+  content: '';
+  pointer-events: none;
+  transform: translateX(calc(var(--tab-index) * (100% + 3px)));
+}
+.bottom-nav .nav-tab.active { background: transparent; }
+button.metric-card, .profile-orb {
+  transition: transform 140ms var(--ease-out), background-color 140ms ease;
+}
+button.metric-card:active, .profile-orb:active, .nav-tab:active { transform: scale(.97); }
+@media (hover: hover) and (pointer: fine) {
+  button.metric-card:hover { background: #e3efed; }
+}
+@media (prefers-color-scheme: light) {
+  .bottom-nav::before { background: rgb(0 125 121 / .12); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .stage:not(.reduce-motion) .story h1 {
+    animation: move4all-arrive 600ms var(--ease-out) backwards;
+  }
+  .stage:not(.reduce-motion) .story h1 em {
+    display: inline-block;
+    animation: move4all-emphasis 500ms 120ms var(--ease-out) backwards;
+  }
+  .stage:not(.reduce-motion) .daily-cards > * {
+    animation: move4all-arrive 300ms var(--ease-out) backwards;
+  }
+  .stage:not(.reduce-motion) .daily-cards > :nth-child(2) { animation-delay: 45ms; }
+  .stage:not(.reduce-motion) .daily-cards > :nth-child(3) { animation-delay: 90ms; }
+  .stage:not(.reduce-motion) .daily-cards > :nth-child(4) { animation-delay: 135ms; }
+  .stage:not(.reduce-motion) .bottom-nav::before {
+    transition: transform 240ms var(--ease-out);
+  }
+  .stage:not(.reduce-motion) .nav-tab { transition: color 160ms ease, transform 140ms var(--ease-out); }
+  @media (min-width: 641px) {
+    .stage:not(.reduce-motion) .device-wrap {
+      animation: move4all-device 700ms var(--ease-out) backwards;
+    }
+  }
+}

@@ -86,11 +86,9 @@ button:disabled { cursor: not-allowed; opacity: .55; }
 
 .stage { position: relative; isolation: isolate; display: grid; grid-template-columns: minmax(320px, 1fr) minmax(360px, 450px); align-items: center; gap: clamp(36px, 8vw, 128px); width: min(1320px, calc(100% - 80px)); min-height: 100svh; margin: 0 auto; padding: 42px 28px; }
 .story { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: space-between; min-height: min(720px, 85svh); padding: 4px 0 16px; }
-.brand-lockup { display: inline-flex; align-items: center; gap: 12px; width: fit-content; color: var(--paper-50); font-size: 1.02rem; font-weight: 800; letter-spacing: .115em; text-decoration: none; }
-.brand-mark { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid var(--border-subtle); border-radius: 50%; background: #121718; }
-.brand-mark svg { width: 25px; height: 25px; fill: none; stroke: var(--accent-primary); stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
-.brand-mark circle { fill: var(--accent-primary); stroke: none; }
-.brand-four { color: var(--accent-primary); }
+.brand-lockup { display: inline-flex; align-items: center; width: fit-content; text-decoration: none; }
+.brand-image { display: block; width: 100%; height: auto; max-height: 100%; object-fit: contain; }
+.brand-lockup .brand-image { width: min(236px, 100%); max-height: 78px; }
 .story-copy { max-width: 600px; margin-top: auto; margin-bottom: auto; padding: clamp(64px, 12vh, 140px) 0 80px; }
 .story-kicker, .eyebrow { display: flex; align-items: center; gap: 9px; color: var(--muted-300); font-size: var(--text-caption); font-weight: 700; letter-spacing: .105em; line-height: 1.4; }
 .live-dot, .demo-dot { display: inline-block; width: 7px; height: 7px; flex: 0 0 7px; border-radius: 50%; background: var(--accent-primary); box-shadow: 0 0 12px rgb(130 244 242 / .48); }
@@ -117,11 +115,8 @@ button:disabled { cursor: not-allowed; opacity: .55; }
 .battery::before { position: absolute; inset: 1px; border-radius: 1px; background: currentColor; content: ''; }
 .battery::after { position: absolute; top: 2px; right: -3px; width: 2px; height: 3px; border-radius: 0 1px 1px 0; background: currentColor; content: ''; }
 .app-topline { display: flex; align-items: center; justify-content: space-between; min-height: 49px; flex: 0 0 49px; padding: 0 18px; }
-.app-brand { display: inline-flex; min-height: 44px; align-items: center; gap: 7px; color: var(--paper-50); font-size: 10px; font-weight: 800; letter-spacing: .075em; text-decoration: none; white-space: nowrap; }
-.app-brand-mark { display: grid; width: 27px; height: 27px; flex: 0 0 27px; place-items: center; border: 1px solid var(--border-subtle); border-radius: 50%; background: #121718; }
-.app-brand-mark svg { width: 19px; height: 19px; fill: none; stroke: var(--accent-primary); stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
-.app-brand-mark circle { fill: var(--accent-primary); stroke: none; }
-.app-brand .brand-four { color: var(--accent-primary); }
+.app-brand { display: inline-flex; width: 170px; height: 44px; flex: 0 1 170px; align-items: center; border-radius: 12px; background: #07090a; padding: 0 5px; text-decoration: none; white-space: nowrap; }
+.app-brand .brand-image { width: 100%; max-height: 44px; }
 .app-top-meta { margin-left: auto; padding-right: 10px; color: var(--muted-300); font-size: 10px; font-weight: 700; letter-spacing: .075em; white-space: nowrap; }
 .icon-button { display: inline-grid; width: var(--tap-min); height: var(--tap-min); flex: 0 0 var(--tap-min); place-items: center; border: 1px solid transparent; border-radius: 50%; background: transparent; color: var(--paper-50); cursor: pointer; transition: background-color 160ms ease, border-color 160ms ease; }
 .icon-button:hover { border-color: var(--border-subtle); background: var(--surface-raised); }
@@ -405,7 +400,6 @@ button.metric-card { cursor: pointer; }
 @media (prefers-color-scheme: light) {
   :root { --surface-page: #eef1f0; --surface-device: #f7f8f7; --surface-raised: #e8ecea; --surface-pressed: #dce2df; --text-primary: #101515; --text-secondary: #465150; --border-subtle: #c6cfcc; --focus-ring: #006d6b; --accent-primary: #007d79; --accent-strong: #00615e; --button-primary-bg: #78e3df; --shadow-device: 0 48px 120px rgb(27 48 47 / .22), 0 20px 54px rgb(27 48 47 / .16); }
   .status-row, .status-icons, .app-brand, .icon-button, .section-title h1, .profile-orb, .workout-card-copy h3, .history-date strong, .history-row h2, .settings-profile strong, .setting-row strong { color: #101515; }
-  .app-brand-mark, .brand-mark { background: #e7eeec; }
   .bottom-nav { border-color: rgb(20 42 41 / .13); background: rgb(248 250 249 / .78); box-shadow: 0 10px 32px rgb(20 42 41 / .16), inset 0 1px rgb(255 255 255 / .85); }
   .nav-tab { color: #465150; }
   .nav-tab.active { background: rgb(0 125 121 / .12); color: #00615e; }

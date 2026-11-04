@@ -124,8 +124,7 @@ export default function App() {
     <a className="skip-link" href="#phone-main">Preskočiť na obsah aplikácie</a>
     <section className="story" aria-label="MOVE4ALL">
       <a className="brand-lockup" href="#home" onClick={(event) => { event.preventDefault(); navigateTab('home'); }} aria-label="MOVE4ALL, domov">
-        <span className="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M7 28.5 17.5 10l5 9 10.5-6"/><path d="m26.5 13 6.5 0-1.5 6.5"/><circle cx="7" cy="29" r="2.5"/><circle cx="17.5" cy="10" r="2.5"/></svg></span>
-        <span>MOVE<span className="brand-four">4</span>ALL</span>
+        <img className="brand-image" src="/branding/move4all-logo.png" alt="MOVE4ALL" />
       </a>
       <div className="story-copy">
         <span className="story-kicker"><span className="live-dot" /> POHYB PRE ĽUDÍ SO ZDRAVOTNÝM POSTIHNUTÍM</span>
@@ -141,7 +140,7 @@ export default function App() {
           <div className="dynamic-island" aria-hidden="true"><span /></div>
           <div className="status-row" aria-label="Stav zariadenia"><span>9:41</span><span className="status-icons" aria-hidden="true"><Signal size={14} /><Wifi size={13} /><span className="battery" /></span></div>
           <div className="app-topline">
-            {screen !== 'active' && screen !== 'home' && screen !== 'history' && screen !== 'settings' ? <button className="icon-button back-button" aria-label="Späť na predchádzajúcu obrazovku" onClick={goBack}><ArrowLeft size={19} /></button> : <a className="app-brand" href="#home" onClick={(event) => { event.preventDefault(); if (screen === 'active') setStopPrompt(true); else navigateTab('home'); }} aria-label={screen === 'active' ? 'Otvoriť možnosti tréningu' : 'MOVE4ALL, domov'}><span className="app-brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M7 28.5 17.5 10l5 9 10.5-6"/><path d="m26.5 13 6.5 0-1.5 6.5"/><circle cx="7" cy="29" r="2.5"/><circle cx="17.5" cy="10" r="2.5"/></svg></span><span>MOVE<span className="brand-four">4</span>ALL</span></a>}
+            {screen !== 'active' && screen !== 'home' && screen !== 'history' && screen !== 'settings' ? <button className="icon-button back-button" aria-label="Späť na predchádzajúcu obrazovku" onClick={goBack}><ArrowLeft size={19} /></button> : <a className="app-brand" href="#home" onClick={(event) => { event.preventDefault(); if (screen === 'active') setStopPrompt(true); else navigateTab('home'); }} aria-label={screen === 'active' ? 'Otvoriť možnosti tréningu' : 'MOVE4ALL, domov'}><img className="brand-image" src="/branding/move4all-logo.png" alt="MOVE4ALL" /></a>}
             {screen === 'active' && <span className="app-top-meta">{paused ? 'POZASTAVENÉ' : 'PRÁVE PREBIEHA'}</span>}
             <button className="icon-button top-settings" aria-label={screen === 'active' ? 'Zobraziť možnosti ukončenia tréningu' : 'Otvoriť nastavenia prístupnosti'} onClick={() => { if (screen === 'active') setStopPrompt(true); else { setTab('settings'); showScreen('settings'); } }}>{screen === 'active' ? <X size={18} /> : <Settings2 size={18} />}</button>
           </div>

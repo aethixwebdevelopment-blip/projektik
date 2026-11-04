@@ -163,7 +163,7 @@ export default function App() {
             {screen === 'settings' && <SettingsScreen profile={profile} savedNotice={savedNotice} onSave={commitProfile} onEditProfile={() => showScreen('profile')} onGuide={() => showScreen('guide')} onClear={() => { const cleared = clearDemoData(); setProfile(demoProfile); setHistory([]); setFeedback([]); setWorkout([]); setWorkoutExplanation(''); setCompletedExerciseIds([]); setSessionStarted(false); setPaused(false); setContext(readContext()); setTabNotice(cleared ? 'Lokálne demo dáta boli vymazané.' : 'Prehliadač nepovolil vymazať všetky lokálne demo dáta.'); }} />}
           </div>
 
-          {screen !== 'active' && <nav className="bottom-nav" aria-label="Hlavná navigácia">
+          {screen !== 'active' && <nav className="bottom-nav" data-tab={tab} aria-label="Hlavná navigácia">
             <TabButton active={tab === 'home'} label="Denník" icon={ListChecks} onClick={() => navigateTab('home')} />
             <TabButton active={tab === 'training'} label="Tréning" icon={Activity} onClick={() => navigateTab('training')} />
             <TabButton active={tab === 'history'} label="História" icon={Clock3} onClick={() => navigateTab('history')} />

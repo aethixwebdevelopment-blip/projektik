@@ -25,7 +25,7 @@ Apple's Liquid Glass belongs to floating functional controls in this interface: 
 - The daily check-in produces an ephemeral session context; it never saves back to the movement profile.
 - Eligibility checks are completed before ranking and explanation. User feedback only affects ranking.
 - Respect `prefers-reduced-motion`, the in-app reduced-motion setting, larger type, and higher-contrast settings.
-- Motion is limited to short press and selection feedback; all information is available without it.
+- Motion uses one short desktop introduction for the headline and phone, a bounded diary-card stagger, short press feedback, and a sliding tab selection. The phone entrance is omitted on mobile. System and in-app reduced-motion preferences remove spatial animation; selection color and focus remain visible. All information is available without animation.
 
 ## Responsive composition
 
